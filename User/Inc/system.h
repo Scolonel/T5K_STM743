@@ -65,7 +65,7 @@
 
 #define MAX_DB 1600 // максимальное значение дБ умноженное на 20 для обеспечения шага 0.05
 #define SHAG 20.0  // делитель для индикации дБ
-// получение идентификатора платы
+// получение идентификатора платы 
 #define GETIDPLT           (HAL_GPIO_ReadPin(IDC1_GPIO_Port, IDC1_Pin)<<1)+(HAL_GPIO_ReadPin(IDC0_GPIO_Port, IDC0_Pin))  // PD10 (79) // сигнал внешнего питания 0-внешнее питание
 
 #define GETEXTPWR           (HAL_GPIO_ReadPin(EXT_POWER_GPIO_Port, EXT_POWER_Pin)) // PE3 (2) // сигнал внешнего питания 0-внешнее питание

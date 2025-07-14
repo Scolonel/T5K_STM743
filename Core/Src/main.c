@@ -150,8 +150,11 @@ int main(void)
     }
     HAL_Delay(10);
     sprintf((void*)Str,"bauds=115200€€€");
-    HAL_UART_Transmit(&huart7, (void*)Str,strlen((void*)Str),20); // выдаем 
+    HAL_UART_Transmit(&huart7, (void*)Str,strlen((void*)Str),200); // выдаем 
     
+    HAL_Delay(20);
+    sprintf((void*)Str,"bauds=115200€€€");
+    HAL_UART_Transmit(&huart7, (void*)Str,strlen((void*)Str),200); // выдаем 
     //NEX_Transmit(Str);// 
     HAL_Delay(10);
     huart7.Init.BaudRate = 115200;
@@ -175,28 +178,32 @@ int main(void)
     while(1);
     
   }
-  HAL_Delay(10);
-  sprintf((void*)Str, "page 0€€€"); // < START>
-  NEX_Transmit((void*)Str);    //
+
+  CmdInitPage(0);// вызов окна заставки
+//  HAL_Delay(10);
+//  sprintf((void*)Str, "page 0€€€"); // < START>
+//  NEX_Transmit((void*)Str);    //
 //       StartRecievNEX (500);
 //    sprintf((void*)Str,"get t10.txt€€€");
 //    NEX_Transmit((void*)Str);//
     //NEX_Transmit((void*)CmdBuf);//
-  HAL_Delay(10);
-  sprintf((void*)Str, "page 0€€€"); // < START>
-  NEX_Transmit((void*)Str);    //
-  HAL_Delay(10);
+  CmdInitPage(0);// вызов окна заставки
+//  HAL_Delay(10);
+//  sprintf((void*)Str, "page 0€€€"); // < START>
+//  NEX_Transmit((void*)Str);    //
+//  HAL_Delay(10);
 //    sprintf((void*)Str, "t0.txt=\"начало\"€€€"); // auto
 //    NEX_Transmit((void*)Str);    // 
 //      HAL_Delay(10);
 
-       StartRecievNEX (600);
-    sprintf((void*)Str,"get t10.txt€€€");
+       StartRecievNEX (400);
+    sprintf((void*)Str,"get tlcd.txt€€€");
     NEX_Transmit((void*)Str);//
   //HAL_Delay(200);
     while(!((g_WtRdyNEX)||(ReadyNEX==4)));
-       StartRecievNEX (600);
-    sprintf((void*)Str,"get t10.txt€€€");
+  HAL_Delay(50);
+       StartRecievNEX (400);
+    sprintf((void*)Str,"get tlcd.txt€€€");
     NEX_Transmit((void*)Str);//
   //HAL_Delay(200);
     while(!((g_WtRdyNEX)||(ReadyNEX==4)));
