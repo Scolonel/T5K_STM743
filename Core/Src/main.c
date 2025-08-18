@@ -169,18 +169,7 @@ int main(void)
   {
     CheckErrID_Plate=1;
   }
-  if(CheckErrID_Plate)
-  {
-    sprintf((void*)Str, "t0.txt=\"! ќЎ»Ѕ ј !\"€€€"); // auto
-    NEX_Transmit((void*)Str);    // 
-    sprintf((void*)Str, "t1.txt=\"!прибор не тот!\"€€€"); // auto
-    NEX_Transmit((void*)Str);    // 
-    
-    while(1);
-    
-  }
-
-  CmdInitPage(0);// вызов окна заставки
+    CmdInitPage(0);// вызов окна заставки
 //  HAL_Delay(10);
 //  sprintf((void*)Str, "page 0€€€"); // < START>
 //  NEX_Transmit((void*)Str);    //
@@ -189,13 +178,23 @@ int main(void)
 //    NEX_Transmit((void*)Str);//
     //NEX_Transmit((void*)CmdBuf);//
   CmdInitPage(0);// вызов окна заставки
-//  HAL_Delay(10);
-//  sprintf((void*)Str, "page 0€€€"); // < START>
-//  NEX_Transmit((void*)Str);    //
-//  HAL_Delay(10);
-//    sprintf((void*)Str, "t0.txt=\"начало\"€€€"); // auto
+
+  if(CheckErrID_Plate)
+  {
+    HAL_Delay(10);
+//    sprintf((void*)Str, "t0.txt=\"Dummy\"€€€"); // auto
 //    NEX_Transmit((void*)Str);    // 
-//      HAL_Delay(10);
+//    HAL_Delay(5);
+    sprintf((void*)Str, "t0.txt=\"! ќЎ»Ѕ ј !\"€€€"); // auto
+    NEX_Transmit((void*)Str);    // 
+    HAL_Delay(5);
+    sprintf((void*)Str, "t1.txt=\"ѕќ от другого прибора\"€€€"); // auto
+    NEX_Transmit((void*)Str);    // 
+    
+    while(1);
+    
+  }
+
 
        StartRecievNEX (400);
     sprintf((void*)Str,"get tlcd.txt€€€");
