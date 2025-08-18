@@ -78,7 +78,8 @@ uint16_t BufADC[SizeBuf_ADC_int]; // буфер внутреннего АЦП (8), в него пишем при
 // строка для индикатора
 uint8_t Str[64];
 char VerFW_LCD[25] = {"No version LCD          \0"}; //версия ПО индикатора NEXION
-
+uint8_t g_ErrFW_LCD = 0; // не правильная прошивка индикатора
+uint8_t TimerDraw = 0; // время прорисовки ошибки , каждую секунду...
 // ВСПОМОГАТЕЛЬНЫЕ ПЕРЕМЕННЫЕ
 DWORD CountTimerPA = 0;
 char ScreenReDraw=0; // признак необходимости перерисовать экран
@@ -231,6 +232,8 @@ int main(void)
 //        KnowLCD = 0;
 //        break;
 //      }
+     if(VerFW_LCD[6]!='5')
+       g_ErrFW_LCD = 1;;
     }
   // пошлем сообщение о включении ...
     sprintf((void*)Str, "t1.txt=\"Включение...\"яяя"); // auto
@@ -387,6 +390,7 @@ int main(void)
       CountTimerPA++;
       if(CountTimerPA>33)
       {
+        TimerDraw = 1;
         // каждую секунду, посчитаем батарейку
         // (BufADC[0]*(2.5/4096))
         // хорошо заряженные 5.3-5.4 -

@@ -46,6 +46,8 @@ extern "C" {
 /* USER CODE BEGIN ET */
       extern uint16_t Dummy; // пустое чтение буфферов UART
 extern uint32_t BadLevelBat; //режим плохого уровня батарейки
+extern uint8_t g_ErrFW_LCD; // не правильная прошивка индикатора
+extern uint8_t TimerDraw; // время прорисовки ошибки , каждую секунду...
 
 /* USER CODE END ET */
 

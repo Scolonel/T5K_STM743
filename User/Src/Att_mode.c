@@ -71,7 +71,15 @@ void CmdInitPage(int Num)
 
 void ModeFuncTmp(void)
 {
+  char StrL[64];
   ModeFunc();
+  // если ошибка индикатора напишем сообщение
+  if(g_ErrFW_LCD && TimerDraw)
+  {
+    sprintf( StrL,"xstr 0,120,460,60,1,RED,WHITE,1,1,1,\"%s\"€€€","! Error FW LCD !"); //  сообщение об ошибке FW LCD
+    NEX_Transmit((void*)StrL);//
+    TimerDraw = 0;
+  }
     if(KeyP)
     KeyP = 0;
 
