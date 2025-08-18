@@ -404,7 +404,7 @@ void ModeWelcome(void)// режим заставки
         Mdl|=2;
     }
     
-    sprintf(StrN,"%s-%d",DeviceIDN[ConfigDevice.ID_Device],Mdl);
+    sprintf(StrN,"%s-%d",DeviceIDNRu[ConfigDevice.ID_Device],Mdl);
     sprintf (Str,"t0.txt=\"%s\"€€€",StrN); // 
     NEX_Transmit((void*)(void*)Str);//
     // производитель

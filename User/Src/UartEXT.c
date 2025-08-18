@@ -12,7 +12,8 @@
 
 #include "system.h"
 
-const char* DeviceIDN[2]= {"ТОПАЗ-5000","MOT-500M-60"};
+const char* DeviceIDN[2]= {"TOPAZ-5000","MOT-500M-60"};
+const char* DeviceIDNRu[2]= {"ТОПАЗ-5000","MOT-500M-60"};
 
 volatile DWORD UART0Status;
 volatile BYTE UART0TxEmpty = 1;
@@ -141,7 +142,7 @@ void DecodeCommandRS (void)
           }
     
             // версия ПО
-            sprintf (Str, "v3.%02d%c", NUM_VER/26, (0x61+(NUM_VER%26))); // версия должна быть не ниже 2.01 (28.06.2022)
+            sprintf (Str, "v3.%02d%c(%03d)", NUM_VER/26, (0x61+(NUM_VER%26)),NUM_VER ); // версия должна быть не ниже 2.01 (28.06.2022)
 
           // GetDeviceName( BufString ); // запрос сторки идентификатора
           sprintf(BufString,"%s-%d,%s,SN%04d\r",DeviceIDN[ConfigDevice.ID_Device],Mdl,Str,ConfigDevice.NumDevice);

@@ -118,6 +118,7 @@ static int  NUM_VER =
 ;
 
 extern const char* DeviceIDN[2];
+extern const char* DeviceIDNRu[2];
 
 extern  char DigitSet; //шаг изменеия устанавливаемого затухания
 extern  char LvlBatInd; //индикатор уровня батарейки
