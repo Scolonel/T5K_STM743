@@ -355,7 +355,7 @@ void ModeMain(void)// режим основной
     NEX_Transmit((void*)Str);//
     // индикатор длины волны 
     //if(ConfigDevice.PlaceLW[UserSet.iCurrLW]>1300)
-    sprintf (Str,"t7.txt=\"%s\"€€€",(ConfigDevice.PlaceLW[UserSet.iCurrLW]>1300)?("SM"):("MM")); // 
+    sprintf (Str,"t7.txt=\"%s\"€€€",((ConfigDevice.PlaceLW[UserSet.iCurrLW]>1300)||(ConfigDevice.PlaceLW[UserSet.iCurrLW]==1064))?("SM"):("MM")); // 
     NEX_Transmit((void*)Str);//
     // рисуем значение Ўј√ј изменений
     
